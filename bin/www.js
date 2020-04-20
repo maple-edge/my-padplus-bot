@@ -7,6 +7,7 @@ const onRoomJoin = require("../src/onRoomJoin") // 加入房间监听回调
 const onMessage = require("../src/onMessage") // 消息监听回调
 const onFriendShip = require("../src/onFriendShip") // 好友添加监听回调
 
+const initDay = require('../utils/timeTask') // 定时任务
 /**
  * 配置文件
  * @type {{token, name, room, personal, TXAPIKEY, TXAPI, AUTOREPLY}|*}
@@ -14,8 +15,8 @@ const onFriendShip = require("../src/onFriendShip") // 好友添加监听回调
 const {
 	name,
 	token
-} = require('../config/index')
-const { initDay } = require('../utils/scheduleService')
+} = require('../config')
+
 const puppet = new PuppetPadplus({
 	token,
 })
@@ -31,7 +32,6 @@ async function onLogin (user) {
 	// 登陆后创建定时任务
 	await initDay(bot);
 }
-
 
 bot.on("scan", onScan) // 机器人需要扫描二维码时监听
 bot.on("login", onLogin) // 机器人需要扫描二维码时监听

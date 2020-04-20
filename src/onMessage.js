@@ -25,17 +25,17 @@ module.exports = bot => {
 		// 判断消息来自自己，直接return
 		if (msg.self()) return
 
-		console.log("=============================")
-		console.log(`msg : ${msg}`)
-		console.log(
-				`from: ${msg.from() ? msg.from().name() : null}: ${
-						msg.from() ? msg.from().id : null
-						}`
-		)
-		console.log(`to: ${msg.to()}`)
-		console.log(`text: ${msg.text()}`)
-		console.log(`isRoom: ${msg.room()}`)
-		console.log("=============================")
+		// console.log("=============================")
+		// console.log(`msg : ${msg}`)
+		// console.log(
+		// 		`from: ${msg.from() ? msg.from().name() : null}: ${
+		// 				msg.from() ? msg.from().id : null
+		// 				}`
+		// )
+		// console.log(`to: ${msg.to()}`)
+		// console.log(`text: ${msg.text()}`)
+		// console.log(`isRoom: ${msg.room()}`)
+		// console.log("=============================")
 
 		// 判断此消息类型是否为文本
 		if (msg.type() == Message.Type.Text) {

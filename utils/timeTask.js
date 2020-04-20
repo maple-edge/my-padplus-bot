@@ -1,11 +1,11 @@
-/**
- * 定时任务
- */
-
 const nodeSchedule = require('node-schedule')
 // 使用 FileBox 来发送文件
-const { FileBox } = require('file-box')
-// 配置文件
+const {FileBox} = require('file-box')
+
+/**
+ * 配置文件
+ * @type {{token, name, room, personal, TXAPIKEY, TXAPI, AUTOREPLY}|*}
+ */
 const {
 	room,
 	nikeName,
@@ -21,21 +21,20 @@ const {
 	getOne,
 	getWanAn,
 	getProduct,
-	updateProduct
+	deleteProduct
 } = require('../seivice')
-
 
 // 创建微信每日说定时任务
 async function initDay (bot) {
 	console.log(`已经设定每日说任务`);
-	schedule.setSchedule('0 30 9 * * *', async () => {
+	schedule.setSchedule('0 0 8 * * *', async () => {
 		let one = await getOne(); //获取每日一句
 		// 发送图片
 		let msg = [`${one.date}\n\n`,
 			'又是元气满满的一天,要开心噢^_^ \n\n',
 			`每日一句: \n\n${one.content} \n\n ${one.note} \n`
 		].join('');
-		await sendMessage(msg, one.imgurl)
+		await sendMessage(bot, msg, one.imgurl)
 	});
 
 	/**
@@ -45,14 +44,14 @@ async function initDay (bot) {
 	rule.hour = [8, new nodeSchedule.Range(9, 21)];
 	rule.minute = rules.minute;
 	rule.second = 0;
+	console.log('设定定时发送优惠信息')
 	schedule.setSchedule(rule, async () => {
-		console.log('设定定时发送优惠信息')
 		const product = await getProduct();
 		if (product) {
 			await delay(1000)
-			await updateProduct(product.id)
-			await delay(1000)
-			await sendMessage(product.recommend, product.imageUrl)
+			await sendMessage(bot, product.recommend, product.imageUrl)
+			await delay(5000)
+			await deleteProduct(product.id) // 删除数据里的数据
 		}
 	});
 
@@ -70,19 +69,25 @@ async function initDay (bot) {
 	 */
 	let date = new Date(2020, 12, 22, 8, 0, 0);
 	schedule.setSchedule(date, async () => {
-		// 获取想要发送的联系人
+		// const fileBox = FileBox.fromUrl(imgUrl)
+		// 获取你要发送的联系人
 		let contact =
 				(await bot.Contact.find({ name: nikeName })) || // 昵称
 				(await bot.Contact.find({ alias: aliasName }));  // 备注
-		// const fileBox = FileBox.fromUrl(imgUrl)
 		// await contact.say(fileBox)
 		await delay(1000);
 		await contact.say('节日快乐'); // 发送消息
 	});
 }
 
+/**
+ * 发送消息
+ * @param bot
+ * @param msg
+ * @param imgUrl
+ * @returns {Promise<void>}
+ */
 async function sendMessage (bot, msg, imgUrl = "") {
-	// 发送图片
 	let fileBox;
 	if (imgUrl) {
 		fileBox = FileBox.fromUrl(imgUrl)
@@ -102,6 +107,4 @@ async function sendMessage (bot, msg, imgUrl = "") {
 	})
 }
 
-module.exports = {
-	initDay
-}
+module.exports = initDay

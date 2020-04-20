@@ -1,5 +1,4 @@
 const service = require('../utils/service')
-const { formatTime } = require('../utils')
 const { TXAPI, TXAPIKEY, FATCH_API } = require('../config')
 
 /**
@@ -9,12 +8,8 @@ const { TXAPI, TXAPIKEY, FATCH_API } = require('../config')
 function getOne() {
 	// 获取每日一句
 	return new Promise(resolve => {
-		const time = new Date().getTime();
-		const newTime = time + 8 * 60 * 60 * 1000;
-		const newDate = new Date(newTime)
 		const data = {
-			key: TXAPIKEY,
-			date: formatTime('YY', newDate)
+			key: TXAPIKEY
 		}
 		service(`${TXAPI}/everyday/index`, data).then(jsonRes => {
 			resolve(jsonRes.newslist[0])
@@ -81,7 +76,7 @@ function getProduct() {
 /**
  * 删除产品信息
  */
-function updateProduct(id) {
+function deleteProduct(id) {
 	return new Promise(resolve => {
 		service(`${FATCH_API}/product/delete`, {id}).then(jsonRes => {
 			resolve(jsonRes)
@@ -93,5 +88,5 @@ module.exports = {
 	getTxWeather,
 	getWanAn,
 	getProduct,
-	updateProduct
+	deleteProduct
 }
