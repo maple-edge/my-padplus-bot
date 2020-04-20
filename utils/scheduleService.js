@@ -16,7 +16,7 @@ const {
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 // 定时
-const schedule = require('./utils/schedule');
+const schedule = require('./schedule');
 const {
 	getOne,
 	getWanAn,
