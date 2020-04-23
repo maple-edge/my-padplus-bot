@@ -10,7 +10,7 @@
 	npm config set puppeteer_download_host https://npm.taobao.org/mirror
 ```
 
-# 为了确保安装wechaty-puppet-padplus成功，
+# 为了确保安装wechaty-puppet-padplus成功
 
 ## windows 您必须以管理员身份启动PowerShell并运行以下命令
 ```
