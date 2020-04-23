@@ -3,11 +3,11 @@
 ![Image text](https://wechaty.github.io/wechaty/images/wechaty-logo-green-en.png)
 
 # 配置npm源
->>>>配置npm源为淘宝源（重要，因为需要安装chromium，不配置的话下载会失败或者速度很慢，因为这个玩意140M左右）
+>>>配置npm源为淘宝源（重要，因为需要安装chromium，不配置的话下载会失败或者速度很慢，因为这个玩意140M左右）
 ```
-npm config set registry https://registry.npm.taobao.org
-npm config set disturl https://npm.taobao.org/dist
-npm config set puppeteer_download_host https://npm.taobao.org/mirror
+	npm config set registry https://registry.npm.taobao.org
+	npm config set disturl https://npm.taobao.org/dist
+	npm config set puppeteer_download_host https://npm.taobao.org/mirror
 ```
 
 # 为了确保安装wechaty-puppet-padplus成功，
