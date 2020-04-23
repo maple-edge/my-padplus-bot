@@ -12,7 +12,7 @@
 
 # 为了确保安装wechaty-puppet-padplus成功，
 
-## windows 您必须以管理员身份启动PowerShell并运行以下命令： (若不成功需要以管理员的身份安装)
+## windows 您必须以管理员身份启动PowerShell并运行以下命令
 ```
     npm install -g windows-build-tools
     npm install -g node-gyp
