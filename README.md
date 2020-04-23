@@ -1,7 +1,7 @@
-# Wechaty
-```
+# Wechaty  ![Image text](https://d25lcipzij17d.cloudfront.net/badge.svg?id=js&type=6&v=0.38.4&x2=0) 
+
 ![Image text](https://wechaty.github.io/wechaty/images/wechaty-logo-green-en.png)
-```
+
 # 配置npm源
 >>>>配置npm源为淘宝源（重要，因为需要安装chromium，不配置的话下载会失败或者速度很慢，因为这个玩意140M左右）
 ```
