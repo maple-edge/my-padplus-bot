@@ -1,4 +1,4 @@
-# Wechaty  ![Image text](https://d25lcipzij17d.cloudfront.net/badge.svg?id=js&type=6&v=0.38.4&x2=0) 
+# Wechaty  ![Image text](https://d25lcipzij17d.cloudfront.net/badge.svg?id=js&type=6&v=0.38.4&x2=0) ![Image text](https://github.com/wechaty/wechaty/workflows/NPM/badge.svg)  ![Image text](https://github.com/wechaty/wechaty/workflows/Docker/badge.svg) 
 
 ![Image text](https://wechaty.github.io/wechaty/images/wechaty-logo-green-en.png)
 
