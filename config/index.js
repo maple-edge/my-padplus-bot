@@ -6,7 +6,7 @@
 
 module.exports = {
 	// puppet_padplus Token
-	token: "puppet_padplus_56cd5772ced9a4d7",
+	token: "puppet_padplus_56cd5772ced9a",
 	// 机器人名字
 	name: "汪汪",
 	// 房间/群聊
@@ -14,8 +14,7 @@ module.exports = {
 		// 管理群组列表
 		roomList: {
 			// 群名(用于展示，最好是群名，可随意) : 群id(这个可不能随意)
-			"购物领券⑥群": "19318404770@chatroom",
-			"购物领券②群": "7559633201@chatroom",
+		
 			// "测试": "18285806331@chatroom",
 		},
 		// 加入房间回复
@@ -40,9 +39,9 @@ module.exports = {
 	},
 
 	// 接口配置项
-	FATCH_API: 'http://106.12.182.99:3000', // 自定义的后端服务地址
+	FATCH_API: 'http://106.12', // 自定义的后端服务地址
 	//FATCH_API: 'http://localhost:3000', // 自定义的后端服务地址
-	TXAPIKEY: '3541f85a83a62e84adb1106b9c3616a7', //此处须填写个人申请的天行apikey,请替换成自己的
+	TXAPIKEY: '3541f85a83a62e84a', //此处须填写个人申请的天行apikey,请替换成自己的
 	TXAPI: 'http://api.tianapi.com/txapi', //天行api地址
 	//高级功能配置项（非必填项）
 	AUTOREPLY: false //自动聊天功能 默认关闭 开启设置为: true
